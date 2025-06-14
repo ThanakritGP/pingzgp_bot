@@ -124,7 +124,7 @@ const dessertMenu = [
 client.on(Events.ClientReady, readyClient => {
   console.log(`Logged in as ${readyClient.user.tag}!`);
 
-  readyClient.user.setActivity('รอรับคำสั่งจาก User', {
+  readyClient.user.setActivity('รอรับคำสั่งจากปิงแวรค์ซ่าๆ', {
     type: 3
   });
 });
@@ -142,7 +142,7 @@ client.on(Events.InteractionCreate, async interaction => {
     await interaction.reply(`🍽️ เมนู : **${food}**`);
     // กลับสู่สถานะเดิม
     setTimeout(() => {
-      client.user.setActivity('รอรับคำสั่งจาก User', {
+      client.user.setActivity('รอรับคำสั่งจากปิงแวรค์ซ่าๆ', {
         type: 3
       });
     }, 3000);
@@ -156,7 +156,7 @@ client.on(Events.InteractionCreate, async interaction => {
     await interaction.reply(`🍰 เมนูขนมหวาน : **${dessert}**`);
     // กลับสู่สถานะเดิม
     setTimeout(() => {
-      client.user.setActivity('รอรับคำสั่งจาก User', {
+      client.user.setActivity('รอรับคำสั่งจากปิงแวรค์ซ่าๆ', {
         type: 3
       });
     }, 3000);
@@ -311,7 +311,7 @@ client.on(Events.InteractionCreate, async interaction => {
           components: []
         });
 
-        client.user.setActivity('รอรับคำสั่งจาก User', {
+        client.user.setActivity('รอรับคำสั่งจากปิงแวรค์ซ่าๆ', {
           type: 3
         });
 
@@ -336,7 +336,7 @@ client.on(Events.InteractionCreate, async interaction => {
       }
 
       // กลับสู่สถานะเดิมหลังหมดเวลา interaction
-      client.user.setActivity('รอรับคำสั่งจาก User', {
+      client.user.setActivity('รอรับคำสั่งจากปิงแวรค์ซ่าๆ', {
         type: 3
       });
     });
