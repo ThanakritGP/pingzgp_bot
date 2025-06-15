@@ -1,3 +1,8 @@
+if (process.env.DISABLE_BOT === 'true') {
+  console.log('Bot is disabled via environment variable.');
+  process.exit(0); // หยุด process
+}
+
 import express from 'express';
 import {
   ActionRowBuilder,
