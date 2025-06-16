@@ -13,10 +13,10 @@ import {
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 import {
-  getRandomFood
+  handleMenu
 } from './commands/random-food.js';
 import {
-  getRandomDessert
+  handleDessertMenu
 } from './commands/random-dessert.js';
 import {
   execute as executeEvents
@@ -87,47 +87,11 @@ client.on(Events.InteractionCreate, async interaction => {
   if (!interaction.isChatInputCommand()) return;
 
   if (interaction.commandName === 'menu') {
-    client.user.setActivity('สุ่มเมนูอาหาร', {
-      type: 0
-    });
-    const food = getRandomFood();
-    const embed = new EmbedBuilder()
-      .setTitle('🍽️ เมนู :')
-      .setDescription(`**${food}**`)
-      .setColor('#00AAFF')
-      .setTimestamp();
-
-    await interaction.reply({
-      embeds: [embed]
-    });
-    // กลับสู่สถานะเดิม
-    setTimeout(() => {
-      client.user.setActivity('รอรับคำสั่งจากปิงแวรค์ซ่าๆ', {
-        type: 3
-      });
-    }, 3000);
+    await handleMenu(interaction, client);
   }
 
   if (interaction.commandName === 'dessert-menu') {
-    client.user.setActivity('สุ่มเมนูของหวาน', {
-      type: 0
-    });
-    const dessert = getRandomDessert();
-    const embed = new EmbedBuilder()
-      .setTitle('🍰 ของหวาน :')
-      .setDescription(`**${dessert}**`)
-      .setColor('#FF99CC')
-      .setTimestamp();
-
-    await interaction.reply({
-      embeds: [embed]
-    });
-    // กลับสู่สถานะเดิม
-    setTimeout(() => {
-      client.user.setActivity('รอรับคำสั่งจากปิงแวรค์ซ่าๆ', {
-        type: 3
-      });
-    }, 3000);
+    await handleDessertMenu(interaction, client);
   }
 
   if (interaction.commandName === 'calendar') {

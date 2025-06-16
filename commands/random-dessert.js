@@ -1,3 +1,5 @@
+import { EmbedBuilder } from 'discord.js';
+
 const dessertMenu = [
   "บิงซูสตรอว์เบอรรี", "บิงซูมะม่วง", "บิงซูแตงโม", "บิงซูเมลอน",
   "บิงซูชาเขียว", "บราวนี่", "คุ้กกี้", "เค้กส้ม", "เค้กช็อกโกแลต",
@@ -23,4 +25,21 @@ const dessertMenu = [
 export function getRandomDessert() {
   const index = Math.floor(Math.random() * dessertMenu.length);
   return dessertMenu[index];
+}
+
+export async function handleDessertMenu(interaction, client) {
+  client.user.setActivity('สุ่มเมนูของหวาน', { type: 0 });
+
+  const dessert = getRandomDessert();
+  const embed = new EmbedBuilder()
+    .setTitle('🍰 ของหวาน :')
+    .setDescription(`**${dessert}**`)
+    .setColor('#FF66CC')
+    .setTimestamp();
+
+  await interaction.reply({ embeds: [embed] });
+
+  setTimeout(() => {
+    client.user.setActivity('รอรับคำสั่งจากเด็กเทพศิรินทร์', { type: 3 });
+  }, 3000);
 }
