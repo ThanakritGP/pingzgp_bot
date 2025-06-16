@@ -60,7 +60,7 @@ const rest = new REST({
     console.log('Started refreshing application (/) commands.');
 
     // Register commands to the Discord API
-    await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), {
+    await rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), {
       body: commands
     });
 
