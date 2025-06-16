@@ -44,6 +44,10 @@ const commands = [{
     name: 'dessert-menu',
     description: 'Random Dessert🥞',
   },
+  {
+    name: 'calendar',
+    description: 'ดูตารางกิจกรรมจาก Google Calendar📅',
+  }
 ];
 
 // Register commands using REST API
